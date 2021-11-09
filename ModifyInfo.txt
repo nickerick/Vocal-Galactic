@@ -1,0 +1,12 @@
+HOW TO MODIFY THE CODE
+
+Asteroids
+line 13 - change golden asteroid spawn chance
+line 52 - change golden asteroids at spawn
+
+Panel1
+line 126, 132, 138 - change time length of powerups
+line 179 - change game speed
+
+Spaceship
+line 74 to 128 - change keybinds

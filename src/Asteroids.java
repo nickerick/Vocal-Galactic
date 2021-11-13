@@ -91,7 +91,6 @@ public class Asteroids {
         moveAsteroids();
         wrapBorder();
         drawAsteroids(g);
-
     }
 
     public boolean checkLazerCol(Projectile p) {
@@ -105,15 +104,12 @@ public class Asteroids {
         double[][] vertexes = s.getVertices();
         if (s.spawnImmunity <= 0) {
             if (Math.sqrt(Math.pow(vertexes[0][0] - x, 2) + Math.pow(vertexes[0][1] - y, 2)) <= size) {
-
                 return true;
             }
             if (Math.sqrt(Math.pow(vertexes[1][0] - x, 2) + Math.pow(vertexes[1][1] - y, 2)) <= size) {
-
                 return true;
             }
             if (Math.sqrt(Math.pow(vertexes[2][0] - x, 2) + Math.pow(vertexes[2][1] - y, 2)) <= size) {
-
                 return true;
             }
         }
@@ -126,7 +122,6 @@ public class Asteroids {
         for (int i = 0; i < thetaList.size(); i++) {
             positionX[i] = (int) (size * Math.cos(thetaList.get(i)) + x);
             positionY[i] = (int) (size * Math.sin(thetaList.get(i)) + y);
-
         }
     }
 
@@ -147,8 +142,9 @@ public class Asteroids {
 
     public void drawAsteroids(Graphics g) {
         g.setColor(Color.white);
-        if(golden)
+        if(golden) {
         	g.setColor(Color.YELLOW);
+        }
         g.drawPolygon(positionX, positionY, positionX.length);
         g.setColor(Color.gray);
     }

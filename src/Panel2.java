@@ -1,12 +1,9 @@
-
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+
 public class Panel2 extends JPanel {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
     private JButton startButton = new JButton("START");
     private JButton tutorialButton = new JButton("Tutorial");
@@ -61,21 +58,20 @@ public class Panel2 extends JPanel {
     }
 
     public class MyButtonListener implements ActionListener {
-
         public void actionPerformed(ActionEvent e) {
-            Driving.switchToGame();
+            RunGame.switchToGame();
         }
     }
 
     public class MyButtonListener1 implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Driving.switchToTutorial();
+            RunGame.switchToTutorial();
         }
     }
     
     public class MyButtonListener2 implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Driving.switchToSettings();
+            RunGame.switchToSettings();
         }
     }
     

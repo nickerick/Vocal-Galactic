@@ -13,6 +13,7 @@ public class Panel3 extends JPanel {
     private JLabel tutorial1 = new JLabel("Press shift to scan for voice command.");
 
     public Panel3() {
+
         Dimension dimension = new Dimension(1280, 720);
         setLayout(null);
         setPreferredSize(dimension);
@@ -57,7 +58,7 @@ public class Panel3 extends JPanel {
     {
         public void actionPerformed(ActionEvent e)
         {
-            Driving.switchToTitle();
+            RunGame.switchToTitle();
         }
     }
 

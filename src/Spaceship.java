@@ -7,7 +7,7 @@ import java.util.*;
 //import java.util.concurrent.ExecutorService;
 //import java.util.concurrent.Executors;
 
-//import org.apache.hc.core5.http.ParseException; // REMOVE THIS
+//import org.apache.hc.core5.http.ParseException; // Useds for VtoTxt
 
 public class Spaceship {
 	private static double y, x, angle, speed, turnSpeed;
@@ -34,18 +34,20 @@ public class Spaceship {
 	}
 
 	public void drawSpaceship(Graphics g/*, boolean b*/) {
-		if (spawnImmunity > 0 && spawnImmunity % 100 >= 50)
+		if (spawnImmunity > 0 && spawnImmunity % 100 >= 50) {
 			g.setColor(Color.gray);
-		else
+		} else {
 			g.setColor(Color.white);
-		if (Panel1.active3)
+		}
+		if (Panel1.active3) {
 			g.setColor(Color.YELLOW);
-		  
-		 
+		}
+
 		int[] xVal = { (int) x, (int) (x + L2 * Math.cos(angle + (12. / 18) * Math.PI)),
 				(int) (x + L1 * Math.cos(angle)), (int) (x + L2 * Math.cos(angle - (12. / 18) * Math.PI)) };
 		int[] yVal = { (int) y, (int) (y + L2 * Math.sin(angle + (12. / 18) * Math.PI)),
 				(int) (y + L1 * Math.sin(angle)), (int) (y + L2 * Math.sin(angle - (12. / 18) * Math.PI)) };
+
 		g.drawPolygon(xVal, yVal, 4);
 		spawnImmunity--;
 		testMovement();
@@ -55,15 +57,16 @@ public class Spaceship {
 				projes.remove(i);
 				i--;
 			}
-		}	
+		}
+
 		if(Panel1.active2){
 			if(forceField>240 || forceField<120) {
 			  ffChange *= -1;
-			  }
-			  forceField += ffChange;
-			  g.setColor(new Color(40, 40, forceField, forceField));
-			  g.drawOval((int)(x-25+Math.cos(angle)*4),(int)(y-25+Math.sin(angle)*4),50,50);
-			  }
+			}
+			forceField += ffChange;
+			g.setColor(new Color(40, 40, forceField, forceField));
+			g.drawOval((int)(x-25+Math.cos(angle)*4),(int)(y-25+Math.sin(angle)*4),50,50);
+		}
 		
 	}
 
@@ -187,15 +190,15 @@ public class Spaceship {
 
 	public void wrapBorder() {
 		if (x <= -10) {
-			x = Driving.play.getSize().width + 5;
+			x = RunGame.play.getSize().width + 5;
 		}
-		if (x >= Driving.play.getSize().width + 10) {
+		if (x >= RunGame.play.getSize().width + 10) {
 			x = -5;
 		}
 		if (y <= -10) {
-			y = Driving.play.getSize().height + 5;
+			y = RunGame.play.getSize().height + 5;
 		}
-		if (y >= Driving.play.getSize().height + 10) {
+		if (y >= RunGame.play.getSize().height + 10) {
 			y = -5;
 		}
 	}
@@ -211,6 +214,7 @@ public class Spaceship {
 		double[] vertex3 = { x + L2 * Math.cos(angle - (12. / 18) * Math.PI),
 				y + L2 * Math.sin(angle - (12. / 18) * Math.PI) };
 		double[][] vertex = { vertex1, vertex2, vertex3 };
+
 		return vertex;
 	}
 

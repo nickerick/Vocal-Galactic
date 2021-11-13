@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 
 public class PowerUp {
@@ -12,10 +11,12 @@ public class PowerUp {
     }
 
     public JLabel powerLabel() {
-        if(type == 1)
+        if(type == 1) {
             return tripleShot;
-        if(type == 2)
+        }
+        if(type == 2) {
             return shield;
+        }
         return doublePoints;
     }
 

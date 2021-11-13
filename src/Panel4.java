@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -75,14 +74,13 @@ public class Panel4 extends JPanel {
 
 	public static class MyButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			Driving.switchToTitle();
+			RunGame.switchToTitle();
 		}
 	}
 
 	public static class MySlider1Listener implements ChangeListener {
 		@Override
 		public void stateChanged(ChangeEvent e) {
-			
 			Panel1.asteroidNum = asteroids.getValue();
 		}
 	}
@@ -90,7 +88,6 @@ public class Panel4 extends JPanel {
 	public static class MySlider2Listener implements ChangeListener {
 		@Override
 		public void stateChanged(ChangeEvent e) {
-			
 			Panel1.lives = lives.getValue();
 		}
 	}

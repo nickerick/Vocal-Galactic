@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Panel1 extends JPanel {
-    /**
-     *
-     */
+
 	private static final long serialVersionUID = 1L;
 	private Spaceship spaceship = new Spaceship(400, 700);
 	private ArrayList<Asteroids> asteroid = new ArrayList<Asteroids>();
@@ -43,6 +41,7 @@ public class Panel1 extends JPanel {
         for (int i = 0; i < asteroidNum; i++) {
             asteroid.add(new Asteroids());
         }
+
         tripleShot.setForeground(Color.white);
         shield.setForeground(Color.white);
         doublePoints.setForeground(Color.white);
@@ -76,9 +75,10 @@ public class Panel1 extends JPanel {
 
     }
 
-    public void paintComponent(Graphics g)// overriding paintComponent
-    {
-    	boolean words1 = false, words2 = false, words3 = false;
+    @Override
+    public void paintComponent(Graphics g) { //overriding paint component
+
+    	//boolean words1 = false, words2 = false, words3 = false; //used for voice to text
         super.paintComponent(g);
 
         spaceship.drawSpaceship(g/*,Immunity*/);
@@ -92,27 +92,26 @@ public class Panel1 extends JPanel {
 			for (int j = 0; j < lazers.size(); j++) {
 				if (asteroid.get(i).checkLazerCol(lazers.get(j))) {
 					if (asteroid.get(i).golden) {
-						if (Math.random() > .6666)
+						if (Math.random() > .6666) {
 							power1++;
-						else if (Math.random() > .5)
+						} else if (Math.random() > .5) {
 							power2++;
-						else
+						} else {
 							power3++;
+						}
 					}
 					
 					Panel1.counter1--;
 					Panel1.counter2--;
 					Panel1.counter3--;
-					if(counter1 <=0)
-					{
+
+					if(counter1 <= 0) {
 						Panel1.active1 = false;
 					}
-					if(counter2 <=0)
-					{
+					if(counter2 <= 0) {
 						Panel1.active2 = false;
 					}
-					if(counter3 <=0)
-					{
+					if(counter3 <= 0) {
 						Panel1.active3 = false;
 					}
 					
@@ -120,38 +119,38 @@ public class Panel1 extends JPanel {
 					// otherwise this is how you would do power ups.
 					// Just add to the powerups string of what button they press and this will check if they can use it, and if so it will
 					// To add a new power up just make another if statement. NOT AN IF ELSE!!!!
-					if(spaceship.powerUps.indexOf("s") >= 0 && Panel1.power1 > 0) // Triple Shot
-					{
+					if(spaceship.powerUps.indexOf("s") >= 0 && Panel1.power1 > 0) { // Triple Shot
 						Panel1.active1 = true;
 						Panel1.counter1 = 100; // How long powerup lasts
 						Panel1.power1--;
 					}
-					if(spaceship.powerUps.indexOf("d") >= 0 && Panel1.power2 > 0) // Shield
-					{
+					if(spaceship.powerUps.indexOf("d") >= 0 && Panel1.power2 > 0) { //shield
 						Panel1.active2 = true;
 						Panel1.counter2 = 100; // How long powerup lasts
 						Panel1.power2--;
 					}
-					if(spaceship.powerUps.indexOf("b") >= 0 && Panel1.power3 > 0) // Bonus points
-					{
+					if(spaceship.powerUps.indexOf("b") >= 0 && Panel1.power3 > 0) { // Bonus points
 						Panel1.active3 = true;
 						Panel1.counter3 = 100; // How long powerup lasts
 						Panel1.power3--;
 					}
 					spaceship.powerUps = "";
 					asteroid.remove(i);
-					if (i > 0)
+					if (i > 0) {
 						i--;
+					}
 					lazers.remove(j);
 					j--;
 					asteroid.add(new Asteroids(true));
 					score++;
-					if(active3)
-					score++;
+					if(active3) {
+						score++;
+					}
 					scoreCounter.setText("Score: " + score);
 				}
 			}
 		}
+
         for (int i = 0; i < asteroidNum; i++) {
             asteroid.get(i).doAll(g);
             if (asteroid.get(i).checkCollision(spaceship) && !active2) {
@@ -175,6 +174,7 @@ public class Panel1 extends JPanel {
 
             }
         }
+
         try {
             Thread.sleep(2);// change this number to increase/decrease animation speed
         } catch (Exception x) {
@@ -185,7 +185,8 @@ public class Panel1 extends JPanel {
 
     public class MyButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            Driving.switchToTitle();
+        	RunGame.switchToTitle();
         }
     }
+
 }

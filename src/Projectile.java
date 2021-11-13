@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -18,7 +17,7 @@ public class Projectile {
     }
 
     public boolean draw(Graphics g) {
-        wrapBorder(Driving.play);
+        wrapBorder(RunGame.play);
         move();
         x = (int) xSto;
         y = (int) ySto;
@@ -38,13 +37,13 @@ public class Projectile {
             xSto = p.getSize().width + 5;
         }
         if (xSto >= p.getSize().width + 10) {
-            xSto = -05;
+            xSto = -5;
         }
         if (ySto <= -10) {
             ySto = p.getSize().height + 5;
         }
         if (ySto >= p.getSize().height + 10) {
-            ySto = -05;
+            ySto = -5;
         }
     }
 
